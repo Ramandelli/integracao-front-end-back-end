@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Bem-Vindo <span id="user-email"></span></h1>
+            <p class="lead">Seja bem-vindo à nossa plataforma.</p>
+            <hr class="my-4">
+            <p>Esperamos que você aproveite sua experiência conosco.</p>
+            <a class="btn btn-primary btn-lg" href="index.html" role="button">Deslogar</a>
+        </div>
+    </div>
+
+    <script>
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] === variable) {
+                    return decodeURIComponent(pair[1]);
+                }
+            }
+            return null;
+        }
+
+        var userEmail = getQueryVariable('email');
+        if (userEmail) {
+            document.getElementById('user-email').textContent = userEmail;
+        }
+    </script>
+</body>
+
+</html>
